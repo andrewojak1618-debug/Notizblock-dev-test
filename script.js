@@ -5,7 +5,10 @@ let notizen = ["banana, apple, orange"];
 function renderNotizen() {
   let contentRef = document.getElementById("content");
 
-  contentRef.innerHTML = notes;
+  for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+    const element = notes[indexNote];
+    contentRef.innerHTML = notes;
+  }
 }
 
 // ich muss definieren, wie eine Notiz aussieht (Titel, Inhalt, Erstellungsdatum, evtl. Tags)
