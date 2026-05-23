@@ -2,6 +2,11 @@
     "editor.inlineSuggest.edits.allowCodeShifting": "never",
     "github.copilot.nextEditSuggestions.enabled": false,
     "github.copilot.nextEditSuggestions.fixes": false,
-    "editor.inlineSuggest.edits.showCollapsed": false
+    "editor.inlineSuggest.edits.showCollapsed": false,
+  "prettier.singleQuote": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.quickSuggestions": { "other": "on", "comments": "off", "strings": "on" },
+  "editor.snippetSuggestions": "top",
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.triggerExpansionOnTab": true
 }
-
