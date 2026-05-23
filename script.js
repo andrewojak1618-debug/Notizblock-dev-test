@@ -1,14 +1,19 @@
 // notizen anzeigen lassen
 // ich brauche Notizen
-let notizen = ["banana, apple, orange"];
+let notes = ["1 Notiz", "2 Notiz", "3 Notiz"];
 
-function renderNotizen() {
+function renderNotes() {
   let contentRef = document.getElementById("content");
+  contentRef.innerHTML = "";
 
   for (let indexNote = 0; indexNote < notes.length; indexNote++) {
-    const element = notes[indexNote];
-    contentRef.innerHTML = notes;
+    const note = notes[indexNote];
+    contentRef.innerHTML += getNoteTemplate(note);
   }
+}
+
+function getNoteTemplate(note) {
+  return `<p>+ ${note}</p>`;
 }
 
 // ich muss definieren, wie eine Notiz aussieht (Titel, Inhalt, Erstellungsdatum, evtl. Tags)
