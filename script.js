@@ -1,5 +1,3 @@
-// notizen anzeigen lassen
-// ich brauche Notizen
 let notes = ['1 Notiz', '2 Notiz', '3 Notiz'];
 
 function renderNotes() {
@@ -8,15 +6,14 @@ function renderNotes() {
 
   for (let indexNote = 0; indexNote < notes.length; indexNote++) {
     const note = notes[indexNote];
-    contentRef.innerHTML += getNoteTemplate(note);
+    contentRef.innerHTML += getNoteTemplate(indexNote);
   }
 }
 
-function getNoteTemplate(note) {
-  return `<p>+ ${note}</p>`;
+function getNoteTemplate(indexNote) {
+  return `<p>+ ${notes[indexNote]}<button onclick="deleteNote(${indexNote})">x</button></p>`;
 }
 
-// notizen hinzufügen
 function addNote() {
   let noteInputRef = document.getElementById('note_input');
   let noteInput = noteInputRef.value;
@@ -26,6 +23,11 @@ function addNote() {
   renderNotes();
 
   noteInputRef.value = '';
+}
+
+function deleteNote(indexNote) {
+  notes.splice(indexNote, 1);
+  renderNotes();
 }
 
 // ich muss definieren, wie eine Notiz aussieht (Titel, Inhalt, Erstellungsdatum, evtl. Tags)
