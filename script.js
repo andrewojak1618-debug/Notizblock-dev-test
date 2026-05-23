@@ -1,5 +1,7 @@
 let notes = ['1 Notiz', '2 Notiz', '3 Notiz'];
 
+let trashNotes = [];
+
 function renderNotes() {
   let contentRef = document.getElementById('content');
   contentRef.innerHTML = '';
@@ -10,8 +12,26 @@ function renderNotes() {
   }
 }
 
+function renderTrashNotes() {
+  let TrashContentRef = document.getElementById('trash_content');
+  TrashContentRef.innerHTML = '';
+
+  for (
+    let indexTrashNote = 0;
+    indexTrashNote < trashNotes.length;
+    indexTrashNote++
+  ) {
+    const note = notes[indexTrashNote];
+    TrashContentRef.innerHTML += getNoteTemplate(indexTrashNote);
+  }
+}
+
 function getNoteTemplate(indexNote) {
   return `<p>+ ${notes[indexNote]}<button onclick="deleteNote(${indexNote})">x</button></p>`;
+}
+
+function getTrashNoteTemplate(indexNote) {
+  return `<p>+ ${trashNotes[indexTrashNote]}<button onclick="deleteNote(${indexTrashNote})">x</button></p>`;
 }
 
 function addNote() {
@@ -26,8 +46,10 @@ function addNote() {
 }
 
 function deleteNote(indexNote) {
-  notes.splice(indexNote, 1);
+  let trashNote = notes.splice(indexNote, 1);
+  trashNotes.push(trashNote);
   renderNotes();
+  renderTrashNotes();
 }
 
 // ich muss definieren, wie eine Notiz aussieht (Titel, Inhalt, Erstellungsdatum, evtl. Tags)
