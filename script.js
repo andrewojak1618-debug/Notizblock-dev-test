@@ -1,8 +1,9 @@
 let myData = ['Banana', 'not Banana', 'Apple'];
 
-function renderNotes() {
+function init() {
+  localStorage.setItem('myCat', 'Tom');
   getFromLocalStorage();
-  renderNotes();
+  render();
 }
 
 function saveData() {
@@ -18,7 +19,9 @@ function saveData() {
   inputRef.value = '';
 }
 
-function saveToLocalStorage(indexNote) {}
+function saveToLocalStorage(indexNote) {
+  localStorage.setItem('myData', JSON.stringify(myData));
+}
 
 function getFromLocalStorage(indexTrashNote) {}
 
